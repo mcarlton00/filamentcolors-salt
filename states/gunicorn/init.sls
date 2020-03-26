@@ -6,6 +6,6 @@ gunicorn_service_file:
 
 gunicorn_socket_file:
   file.managed:
-    - name: /etc/systemd/system/gunicorn.socker
+    - name: /etc/systemd/system/gunicorn.socket
     - source: salt://gunicorn/files/gunicorn.socket
     - mode: 755
