@@ -26,18 +26,22 @@ get_python:
     - user: root
     - group: root
     - if_missing: /root/app/
+    - unless: ls /usr/local/bin/python3.8
 
 configure_python:
   cmd.run:
     - name: ./configure --enable-optimizations
     - cwd: /src/Python-3.8.1
+    - unless: ls /usr/local/bin/python3.8
 
 make_python:
   cmd.run:
     - name: make -j 4
     - cwd: /src/Python-3.8.1
+    - unless: ls /usr/local/bin/python3.8
 
 install_python:
   cmd.run:
     - name: make altinstall
     - cwd: /src/Python-3.8.1
+    - unless: ls /usr/local/bin/python3.8
